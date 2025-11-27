@@ -3,6 +3,7 @@ import { AnnotationTagMapping } from './annotation-tag-mapping.ee';
 import { ApiKey } from './api-key';
 import { AuthIdentity } from './auth-identity';
 import { AuthProviderSyncHistory } from './auth-provider-sync-history';
+import { BinaryDataFile, SourceTypeSchema, type SourceType } from './binary-data-file';
 import { CredentialsEntity } from './credentials-entity';
 import { EventDestinations } from './event-destinations';
 import { ExecutionAnnotation } from './execution-annotation.ee';
@@ -26,6 +27,7 @@ import { TestRun } from './test-run.ee';
 import { User } from './user';
 import { Variables } from './variables';
 import { WebhookEntity } from './webhook-entity';
+import { WorkflowDependency } from './workflow-dependency-entity';
 import { WorkflowEntity } from './workflow-entity';
 import { WorkflowHistory } from './workflow-history';
 import { WorkflowStatistics } from './workflow-statistics';
@@ -38,6 +40,9 @@ export {
 	Settings,
 	Variables,
 	ApiKey,
+	BinaryDataFile,
+	SourceTypeSchema,
+	type SourceType,
 	WebhookEntity,
 	AuthIdentity,
 	CredentialsEntity,
@@ -50,6 +55,7 @@ export {
 	SharedWorkflow,
 	TagEntity,
 	User,
+	WorkflowDependency,
 	WorkflowEntity,
 	WorkflowStatistics,
 	WorkflowTagMapping,
@@ -73,6 +79,7 @@ export const entities = {
 	Settings,
 	Variables,
 	ApiKey,
+	BinaryDataFile,
 	WebhookEntity,
 	AuthIdentity,
 	CredentialsEntity,
@@ -84,6 +91,7 @@ export const entities = {
 	SharedWorkflow,
 	TagEntity,
 	User,
+	WorkflowDependency,
 	WorkflowEntity,
 	WorkflowStatistics,
 	WorkflowTagMapping,

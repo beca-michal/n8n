@@ -16,7 +16,7 @@ export type UserLike = {
 	email?: string;
 	firstName?: string;
 	lastName?: string;
-	role: {
+	role?: {
 		slug: string;
 	};
 };
@@ -39,7 +39,7 @@ export type RelayEventMap = {
 	'first-production-workflow-succeeded': {
 		projectId: string;
 		workflowId: string;
-		userId: string;
+		userId: string | null;
 	};
 
 	'first-workflow-data-loaded': {
@@ -84,6 +84,20 @@ export type RelayEventMap = {
 
 	'workflow-saved': {
 		user: UserLike;
+		workflow: IWorkflowDb;
+		publicApi: boolean;
+	};
+
+	'workflow-activated': {
+		user: UserLike;
+		workflowId: string;
+		workflow: IWorkflowDb;
+		publicApi: boolean;
+	};
+
+	'workflow-deactivated': {
+		user: UserLike;
+		workflowId: string;
 		workflow: IWorkflowDb;
 		publicApi: boolean;
 	};
@@ -408,6 +422,7 @@ export type RelayEventMap = {
 		readOnlyInstance: boolean;
 		repoType: 'github' | 'gitlab' | 'other';
 		connected: boolean;
+		connectionType: 'ssh' | 'https';
 	};
 
 	'source-control-user-started-pull-ui': {
@@ -462,7 +477,13 @@ export type RelayEventMap = {
 
 	// #region Variable
 
-	'variable-created': {};
+	'variable-created': {
+		projectId?: string;
+	};
+
+	'variable-updated': {
+		projectId?: string;
+	};
 
 	// #endregion
 
@@ -511,6 +532,19 @@ export type RelayEventMap = {
 	};
 
 	// #endregion
+
+	// #region SSO
+
+	'sso-user-project-access-updated': {
+		projectsRemoved: number;
+		projectsAdded: number;
+		userId: string;
+	};
+
+	'sso-user-instance-role-updated': {
+		role: string;
+		userId: string;
+	};
 
 	// #region runner
 
